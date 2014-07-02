@@ -1,0 +1,88 @@
+body {
+	margin: 0;
+	padding: 0;
+}
+
+.clear {
+	clear: both;
+}
+
+.right {
+	text-align: right;
+}
+
+#header h1 {
+	text-align: center;
+}
+
+#left, #right {
+	min-height: 375px;
+	padding: 0 10px;
+	width: 230px;
+}
+
+#left {
+	border-right: 1px solid #000;
+	float: left;
+}
+
+#right {
+	border-left: 1px solid #000;
+	float: right;
+	text-align:center;
+}
+
+#center {
+	border-left: 1px solid #000;
+	border-right: 1px solid #000;
+	margin: 0 250px;
+	padding: 0 10px;
+}
+
+#center h1 {
+	margin: 0px;
+	text-align: center;
+}
+
+#center h2 {
+	margin: 0px;
+	text-align: center;
+}
+
+hr {
+	margin: 0px;
+}
+
+.banner {
+	border: 1px solid #000;
+	margin: 10px auto 0;
+	width: 200px;
+}
+
+#footer p {
+	text-align: center;
+}
+
+#pagination p {
+	font-size: 110%;
+	margin: 0;
+	text-align: center;
+}
+
+#pagination a {
+	display: inline-block;
+	padding: 3px;
+}
+
+#reg table {
+	margin: 0 auto;
+}
+
+.message {
+	color: #f00;
+	text-align: center;
+}
+
+#message p {
+	text-align: center;
+}
