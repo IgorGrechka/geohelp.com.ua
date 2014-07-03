@@ -6,8 +6,9 @@
 	<meta name="description" content="">
 	<meta name="keywords" content="">
 	<link rel="stylesheet" href="../../css/main.css" type="text/css"/>
+	<script type="text/javascript" src="../../js/livetime.js"></script>
 </head>
-<body>
+<body onLoad="liveTime(); liveDay()">
 	<div id="content">
 		<div id="header">
 			<h1>geohelp.com.ua</h1>
@@ -27,7 +28,10 @@
 				<?isset($user)? include "application/views/user_panel_view.php": include "application/views/auth_view.php";?>
 			</div>
 			<div id="right">
-				<h2>Здесь когда-то что-то будет! :)</h2>
+				<br />
+				<span id="liveDate"></span>
+				<br />
+				<span id="liveTime"></span>
 			</div>
 			<div id="center">
 				<? include "application/views/".$content_view; ?>

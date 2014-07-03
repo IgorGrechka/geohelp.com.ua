@@ -32,6 +32,10 @@ body {
 	text-align:center;
 }
 
+#right span {
+	font-size: 20px;
+}
+
 #center {
 	border-left: 1px solid #000;
 	border-right: 1px solid #000;
