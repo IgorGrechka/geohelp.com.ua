@@ -1,6 +1,18 @@
+html {
+        background: #E6E6FA;
+}
+
 body {
-	margin: 0;
+	background: #FFFAFA;
+	margin: auto;
 	padding: 0;
+	width: 90%;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	-moz-box-shadow: 0px 0px 10px #000000;
+	-webkit-box-shadow: 0px 0px 10px #000000;
+	box-shadow: 0px 0px 10px #000000;
 }
 
 .clear {
@@ -11,14 +23,27 @@ body {
 	text-align: right;
 }
 
+#header {
+	margin-top: 10px;
+	padding-top: 5px;
+	height: 75px;
+}
+
+#footer {
+	padding: 10px;
+	height: 50px;
+	margin-bottom: 10px;
+}
+
 #header h1 {
+	padding: 0;
 	text-align: center;
 }
 
 #left, #right {
 	min-height: 375px;
 	padding: 0 10px;
-	width: 230px;
+	width: 210px;
 }
 
 #left {
@@ -39,7 +64,7 @@ body {
 #center {
 	border-left: 1px solid #000;
 	border-right: 1px solid #000;
-	margin: 0 250px;
+	margin: 0 230px;
 	padding: 0 10px;
 }
 
