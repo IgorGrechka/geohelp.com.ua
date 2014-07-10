@@ -1,5 +1,5 @@
 <h1>Добавление условного знака</h1>
-<table>
+<table width="300">
 	<form enctype="multipart/form-data" action="" method="post">
 		<tr>
 			<td colspan="2" align="center" style="color: red">

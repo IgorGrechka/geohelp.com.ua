@@ -19,12 +19,17 @@ class Controller_Admin extends Controller {
 	}
 	
 	function method_add_znak() {
-		if ($_POST) {
-			$status = $this->admin->add_znak($_POST, $_FILES);
-			$data["status"] = $this->getErrMessage($status);
-			$this->view->generate('admin_view_add_znak.php', 'template_view.php', $data, $this->authUserName);
+		if ($this->admin->isAdminUser()) {
+			if ($_POST) {
+				$status = $this->admin->add_znak($_POST, $_FILES);
+				$data["status"] = $this->getErrMessage($status);
+				$this->view->generate('admin_view_add_znak.php', 'template_view.php', $data, $this->authUserName);
+			}else{
+				$this->view->generate('admin_view_add_znak.php', 'template_view.php', null, $this->authUserName);
+			}
 		}else{
-			$this->view->generate('admin_view_add_znak.php', 'template_view.php', null, $this->authUserName);
+			$data = false;
+			$this->view->generate('admin_view.php', 'template_view.php', $data, $this->authUserName);
 		}
 	}
 }

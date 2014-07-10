@@ -9,7 +9,7 @@
 	<script type="text/javascript" src="../../js/fx.js"></script>
 	<script type="text/javascript" src="../../js/jquery-1.11.1.js" ></script>
 </head>
-<body onLoad="liveTime(); liveDay()">
+<body onLoad="fx()">
 	<div id="content">
 		<div id="header">
 			<h1>geohelp.com.ua</h1>

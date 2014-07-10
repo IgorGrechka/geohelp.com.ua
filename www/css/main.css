@@ -117,3 +117,13 @@ hr {
 #message p {
 	text-align: center;
 }
+
+div.addon{
+	display: none;
+	text-align: center;
+	padding: 5px;
+}
+
+td.addon{
+	padding: 0 5px;	
+}

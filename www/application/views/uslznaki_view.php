@@ -29,6 +29,15 @@ foreach ($data as $row){
 	<td>{$row['description']}</td>
 	<td><img src="{$row['img_sourse']}"></td>
 	</tr>
+	<tr>
+		<td class="addon" colspan="4" align="right">
+		<a class="addfx" href="">Дополнения</a>
+			<div class=addon>
+				<p>Дополнение</p>
+				<p>Здесь будет текст дополнений</p>
+			</div>
+		</td>
+	</tr>
 LIST;
 }
 ?>
