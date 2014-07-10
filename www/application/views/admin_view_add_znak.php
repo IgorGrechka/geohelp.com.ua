@@ -1,10 +1,11 @@
 <h1>Добавление условного знака</h1>
 <table>
-	<form action="" method="post">
+	<form enctype="multipart/form-data" action="" method="post">
 		<tr>
 			<td colspan="2" align="center" style="color: red">
 			<?echo $data["status"];?>
 			</td>
+		</tr>
 		<tr>
 			<td>Номер в каталоге</td>
 			<td>
@@ -39,11 +40,20 @@
 					<option value="5000">1:5000</option>
 				</select>
 			</td>
-			<tr>
+		</tr>
+		<tr>
+			<td>
+				<input type="hidden" name="MAX_FILE_SIZE" value="30000" />
+				Изображение:
+			</td>
+			<td>
+				<input name="symbol_file" type="file" />
+			</td>
+		</tr>
+		<tr>
 				<td colspan="2" align="center">
 				<input type="submit" value="Добавить">
 			</td>
-		</tr>
 		</tr>
 	</form>
 	<form action="" method="post">

@@ -12,11 +12,13 @@
 </form>
 </div>
 <h1>Полный каталог</h1>
+<div class="symbols">
 <table border="1" cellpadding="5">
 	<tr align="center">
 		<td>Имя каталога</td>
 		<td>Имя знака</td>
 		<td>Описание</td>
+		<td>Изображение</td>
 	</tr>
 <?php
 foreach ($data as $row){
@@ -25,9 +27,10 @@ foreach ($data as $row){
 	<td>{$row['cat_name']}</td>
 	<td>{$row['zn_name']}</td>
 	<td>{$row['description']}</td>
+	<td><img src="{$row['img_sourse']}"></td>
 	</tr>
 LIST;
-	}
+}
 ?>
 </table>
-<br />
+</div>

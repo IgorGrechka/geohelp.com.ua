@@ -6,15 +6,14 @@
 	<meta name="description" content="">
 	<meta name="keywords" content="">
 	<link rel="stylesheet" href="../../css/main.css" type="text/css"/>
-	<script type="text/javascript" src="../../js/livetime.js"></script>
+	<script type="text/javascript" src="../../js/fx.js"></script>
+	<script type="text/javascript" src="../../js/jquery-1.11.1.js" ></script>
 </head>
 <body onLoad="liveTime(); liveDay()">
 	<div id="content">
 		<div id="header">
 			<h1>geohelp.com.ua</h1>
 		</div>
-		<hr>
-		<div id="main_content">
 			<div id="left">
 				<h2>Меню</h2>
 				<ul>
@@ -37,8 +36,6 @@
 				<? include "application/views/".$content_view; ?>
 			</div>
 			<div class="clear"></div>
-			<hr>
-		</div>	
 		<div id="footer">
 			<p>Все права защищены &copy; 2014</p>
 		</div>

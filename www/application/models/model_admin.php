@@ -9,19 +9,22 @@ class Model_Admin extends Model {
 		}
 	}
 	
-	public function add_znak($data) {
+	public function add_znak($data, $img_data) {
 		if ($data) {
+			
 			//Добавление знака в базу данных
 			if ($data['cat_name'] and $data['zn_name'] and $data['description'] and $data['scale'] and $data['id_order']) {
+				if (!($this->add_image($img_data))) return "IMAGE_ERROR";
+				$img_sourse = "/upload/img/".basename($img_data['symbol_file']['name']);
 				$cat_name = $this->clearStr($data['cat_name']);
 				$zn_name = $this->clearStr($data['zn_name']);
 				$description = $this->clearStr($data['description']);
 				$scale = $this->clearInt($data['scale']);
 				$id_order = $this->clearInt($data['id_order']);
-				$sql = "INSERT INTO znaki (cat_name, zn_name, description, scale, id_order)
-											VALUES (?, ?, ?, ?, ?)";
+				$sql = "INSERT INTO znaki (cat_name, zn_name, description, scale, img_sourse, id_order)
+											VALUES (?, ?, ?, ?, ?, ?)";
 				$stmt = $this->db->prepare($sql);
-				$stmt->execute(array($cat_name, $zn_name, $description, $scale, $id_order));
+				$stmt->execute(array($cat_name, $zn_name, $description, $scale, $img_sourse, $id_order));
 				$zn_id = $this->db->lastInsertId();
 			
 			//Проверка наличия дополнения к добавляемому знаку (при нахождении дополнение добавляет связь в "znak_addons")
@@ -33,7 +36,7 @@ class Model_Admin extends Model {
 						$this->db->exec($sql);
 					}
 				}
-			
+				return "OPERATION_SCCESS";
 			}elseif ($data['add_num'] and $data['add_zn_num'] and $data['add_text']) {
 			
 			//Добавление дополнения в базу данных
@@ -74,6 +77,18 @@ class Model_Admin extends Model {
 			}else{	
 			return "DATA_ERROR";
 			}
+		}else{
+		return "DATA_ERROR";
+		}
+	}
+	
+	public function add_image($img) {
+		if ($img['symbol_file']['name'] == "") return false;
+		$uploadfile = "upload/img/".basename($img['symbol_file']['name']);
+		if (move_uploaded_file($img['symbol_file']['tmp_name'], $uploadfile)) {
+			return true;
+		}else{
+			return false;
 		}
 	}
 }
