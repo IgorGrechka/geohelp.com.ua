@@ -22,7 +22,7 @@
 	</tr>
 <?php
 foreach ($data as $row){
-   echo <<<LIST
+  echo <<<LIST
 	<tr>
 	<td>{$row['cat_name']}</td>
 	<td>{$row['zn_name']}</td>
@@ -33,8 +33,12 @@ foreach ($data as $row){
 		<td class="addon" colspan="4">
 		<a class="addfx" href="">Дополнения</a>
 			<div class=addon>
-				<p>Дополнение</p>
-				<p>Здесь будет текст дополнений</p>
+LIST;
+	foreach ($row["addon"] as $addon){
+		echo ("<p align='justify'>".$addon["add_num"].". ");
+		echo (str_replace('\r\n\r\n', ' ', $addon["add_text"])."</p>");
+	}		
+	 echo <<<LIST
 			</div>
 		</td>
 	</tr>
