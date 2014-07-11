@@ -13,8 +13,8 @@
 </div>
 <h1>Полный каталог</h1>
 <div class="symbols">
-<table border="1" cellpadding="5">
-	<tr align="center">
+<table>
+	<tr>
 		<td>Имя каталога</td>
 		<td>Имя знака</td>
 		<td>Описание</td>
@@ -23,14 +23,14 @@
 <?php
 foreach ($data as $row){
    echo <<<LIST
-	<tr align="center">
+	<tr>
 	<td>{$row['cat_name']}</td>
 	<td>{$row['zn_name']}</td>
 	<td>{$row['description']}</td>
 	<td><img src="{$row['img_sourse']}"></td>
 	</tr>
 	<tr>
-		<td class="addon" colspan="4" align="right">
+		<td class="addon" colspan="4">
 		<a class="addfx" href="">Дополнения</a>
 			<div class=addon>
 				<p>Дополнение</p>

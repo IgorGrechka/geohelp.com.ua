@@ -118,12 +118,70 @@ hr {
 	text-align: center;
 }
 
-div.addon{
+div.addon {
 	display: none;
 	text-align: center;
 	padding: 5px;
 }
 
-td.addon{
-	padding: 0 5px;	
+.symbols {
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
+}
+
+.symbols table {
+	border: 1px solid #000000;
+	border-collapse: collapse;
+	border-spacing: 0;
+	width: 100%;
+	margin: 0px;
+	padding: 0px;
+}
+
+.symbols td {
+	vertical-align: middle;
+	background-color: #ffffff;
+	border: 1px solid #000000;
+	border-width: 0px 1px 1px 0px;
+	text-align: center;
+	padding: 5px;
+	font-size: 12px;
+	font-family: Verdana;
+	font-weight: normal;
+	color: #000000;
+}
+
+.symbols tr:last-child td {
+	border-width: 0px 1px 0px 0px;
+}
+
+.symbols tr td:last-child {
+	border-width: 0px 0px 1px 0px;
+}
+
+.symbols tr:last-child td:last-child {
+	border-width: 0px 0px 0px 0px;
+}
+
+.symbols tr:first-child td {
+	background: -o-linear-gradient(bottom, #b2b2b2 5%, #ffffff 100%);	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #b2b2b2), color-stop(1, #ffffff) );
+	background: -moz-linear-gradient( center top, #b2b2b2 5%, #ffffff 100% );
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#b2b2b2", endColorstr="#ffffff");	background: -o-linear-gradient(top,#b2b2b2,ffffff);
+	background-color: #b2b2b2;
+	border: 0px solid #000000;
+	text-align: center;
+	border-width: 0px 0px 1px 1px;
+	font-size: 14px;
+	font-family: Verdana;
+	font-weight: bold;
+	color: #000000;
+}
+
+.symbols tr:first-child td:first-child {
+	border-width: 0px 0px 1px 0px;
+}
+
+.symbols tr:first-child td:last-child {
+	border-width: 0px 0px 1px 1px;
 }
