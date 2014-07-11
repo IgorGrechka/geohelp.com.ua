@@ -62,6 +62,11 @@ class Model {
 		return abs((int)$data);
 	}
 	
+	public function isCorrectSqlDouble($data) {
+		if (preg_match("/^([1-9]{1,3})(\.[0-9])?$/", $data) === 0) return false;
+	return true;
+	}
+	
 	public function hashPassword($password) {
 		return md5($password.$this->config->pas_secure);
 	}

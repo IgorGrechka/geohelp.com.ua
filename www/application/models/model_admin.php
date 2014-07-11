@@ -20,56 +20,38 @@ class Model_Admin extends Model {
 				$zn_name = $this->clearStr($data['zn_name']);
 				$description = $this->clearStr($data['description']);
 				$scale = $this->clearInt($data['scale']);
-				$id_order = $this->clearInt($data['id_order']);
+				$id_order = trim($data['id_order']);
+				if (!$this->isCorrectSqlDouble($id_order)) return "SYMBOL_NUM_ERROR";
 				$sql = "INSERT INTO znaki (cat_name, zn_name, description, scale, img_sourse, id_order)
 											VALUES (?, ?, ?, ?, ?, ?)";
 				$stmt = $this->db->prepare($sql);
 				$stmt->execute(array($cat_name, $zn_name, $description, $scale, $img_sourse, $id_order));
-				$zn_id = $this->db->lastInsertId();
-			
-			//Проверка наличия дополнения к добавляемому знаку (при нахождении дополнение добавляет связь в "znak_addons")
-				$sql = "SELECT id FROM addons WHERE add_zn_num = '$id_order'";
-				$result = $this->db->query($sql);
-				if ($result <> "") { 
-					foreach ($result as $row) {
-						$sql = "INSERT INTO znak_addons (zn_id, add_id) VALUES ($zn_id, {$row["id"]})";
-						$this->db->exec($sql);
-					}
-				}
 				return "OPERATION_SCCESS";
 			}elseif ($data['add_num'] and $data['add_zn_num'] and $data['add_text']) {
 			
 			//Добавление дополнения в базу данных
 				$add_text = $this->clearStr($data['add_text']);
 				$add_num = $this->clearInt($data['add_num']);
-				$add_zn_num = $this->clearInt($data['add_zn_num']);
+				$add_zn_num = trim($data['add_zn_num']);
+				if (!$this->isCorrectSqlDouble($add_zn_num)) return "SYMBOL_NUM_ERROR";
 			
 			//Проверка наличия условного знака с указанным номером
 				$sql = "SELECT * FROM znaki WHERE id_order = ?";
 				$stmt = $this->db->prepare($sql);
 				$stmt->execute(array($add_zn_num));
-				if (!is_NULL($stmt->fetchAll())){
+				if ($stmt->fetch() != ""){
 					
 					//Запись дополнения в таблицу
-					$sql = "INSERT INTO addons (add_text, add_num, add_zn_num)
-										VALUES (?, ?, ?)";
+					$sql = "INSERT INTO addons (add_text, add_num)
+										VALUES (?, ?)";
 					$stmt = $this->db->prepare($sql);
-					$stmt->execute(array($add_text, $add_num, $add_zn_num));
+					$stmt->execute(array($add_text, $add_num));
 							
-					//Выборка для связывающей таблицы
-					$sql = "SELECT zn_temp.id, addons.id
-								FROM (SELECT id, id_order FROM znaki WHERE id_order = ?) AS zn_temp, addons
-								WHERE (zn_temp.id_order = addons.add_zn_num) AND (add_num = ?)";
+					//Запись в связующую таблицу
+					$sql = "INSERT INTO znak_addons (zn_id, add_id)
+												VALUES (?, ?)";
 					$stmt = $this->db->prepare($sql);
 					$stmt->execute(array($add_zn_num, $add_num));
-					$result = $stmt->fetchAll(PDO::FETCH_NUM);
-					
-					//Запись id в связующую таблицу
-					foreach ($result as $value) {
-						$sql = "INSERT INTO znak_addons (zn_id, add_id)
-												VALUES ($value[0], $value[1])";
-						$this->db->query($sql);
-					}
 					return "OPERATION_SCCESS";
 				}else{
 				return "SYMBOL_NOT_FOUND";
