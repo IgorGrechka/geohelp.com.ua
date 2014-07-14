@@ -1,5 +1,5 @@
 <h1>Добавление условного знака</h1>
-<table width="300">
+<table>
 	<form enctype="multipart/form-data" action="" method="post">
 		<tr>
 			<td colspan="2" align="center" style="color: red">
@@ -9,7 +9,7 @@
 		<tr>
 			<td>Номер в каталоге</td>
 			<td>
-				<input type="text" name="id_order">
+				<input class="symbolNum" type="text" name="id_order"><span class="note"> - допустимый формат: "1" и "1.1"</span>
 			</td>
 		</tr>
 		<tr>
@@ -66,7 +66,7 @@
 		<tr>
 			<td>К условному знаку</td>
 			<td>
-				<input type="text" name="add_zn_num">
+				<input class="symbolNum" type="text" name="add_zn_num"><span class="note"> - допустимый формат: "1" и "1.1"</span>
 			</td>
 		</tr>
 		<tr>

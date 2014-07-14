@@ -124,6 +124,10 @@ div.addon {
 	padding: 5px;
 }
 
+span.note {
+	color: #6495ED;
+}
+
 .symbols {
 	margin: 0px;
 	padding: 0px;
